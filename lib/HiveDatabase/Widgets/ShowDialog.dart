@@ -6,6 +6,7 @@ class CustomDialog {
     required BuildContext context,
     final TextEditingController? primaryController,
     final TextEditingController? secondaryController,
+    final TextInputType? inputType,
     final String? lblTextName,
     final String? lblTextRol,
     required String subButtn,
@@ -32,6 +33,7 @@ class CustomDialog {
                   const SizedBox(height: 10),
                   TextFormField(
                     controller: secondaryController,
+                    keyboardType: inputType,
                     decoration: InputDecoration(
                       labelText: lblTextRol,
                     ),
@@ -59,9 +61,7 @@ class CustomDialog {
                         },
                         child: Text(
                           cancel,
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ],
