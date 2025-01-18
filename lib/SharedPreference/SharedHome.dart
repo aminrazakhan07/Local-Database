@@ -22,6 +22,22 @@ class _SharedhomeState extends State<Sharedhome> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            //
+            FutureBuilder(
+              future: SharedPreferences.getInstance(),
+              builder: (context, snap) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(snap.data?.getString('name').toString() ?? ''),
+                    Text(snap.data?.getInt('age').toString() ?? ''),
+                    Text(snap.data?.getDouble('percent').toString() ?? ''),
+                    Text(snap.data?.getBool('isLogin').toString() ?? ''),
+                  ],
+                );
+              },
+            ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -41,6 +57,7 @@ class _SharedhomeState extends State<Sharedhome> {
                     sp.setDouble('percent', 78.5);
                     sp.setBool('isLogin', true);
                     print('Clicked');
+                    setState(() {});
                   },
                   child: Text('Add Data'),
                 ),
@@ -59,18 +76,22 @@ class _SharedhomeState extends State<Sharedhome> {
                         await SharedPreferences.getInstance();
                     //
 
-                    print('Name: ${sp.getString('name')}');
-                    print('Age: ${sp.getInt('age')}');
-                    print('Percent: ${sp.getDouble('percent')}');
-                    print('Sate: ${sp.getBool('isLogin')}');
+                    // print('Name: ${sp.getString('name')}');
+                    // print('Age: ${sp.getInt('age')}');
+                    // print('Percent: ${sp.getDouble('percent')}');
+                    // print('Sate: ${sp.getBool('isLogin')}');
                     //
+                    sp.remove('name');
+                    sp.remove('age');
+                    setState(() {});
                   },
-                  child: Text('Show Data'),
-                )
+                  child: Text('Remove Data'),
+                  //
+                ),
               ],
             ),
-            Text('Shared Home'),
-            SizedBox(height: 20),
+
+            // SizedBox(height: 20),
           ],
         ),
       ),
