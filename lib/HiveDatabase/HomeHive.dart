@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:local_database/HiveDatabase/Widgets/ShowDialog.dart';
 
@@ -13,12 +11,12 @@ class HomeHive extends StatefulWidget {
 
 class _HomeHiveState extends State<HomeHive> {
   //
-  Box? studentBox;
-  @override
-  void initState() {
-    studentBox = Hive.box('students');
-    super.initState();
-  }
+  // Box? studentBox;
+  // @override
+  // void initState() {
+  //   studentBox = Hive.box('students');
+  //   super.initState();
+  // }
 
   //
   TextEditingController rollNoController = TextEditingController();
@@ -42,17 +40,17 @@ class _HomeHiveState extends State<HomeHive> {
               Text('Studentns Details'),
               Row(
                 children: [
-                  ValueListenableBuilder(
-                    valueListenable: studentBox!.listenable(),
-                    builder: (context, Box studentBox, _) {
-                      return ListView.builder(itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(studentBox.keyAt(index)),
-                          subtitle: Text(studentBox.getAt(index)),
-                        );
-                      });
-                    },
-                  ),
+                  // ValueListenableBuilder(
+                  // valueListenable: studentBox!.listenable(),
+                  // builder: (context, Box studentBox, _) {
+                  //   return ListView.builder(itemBuilder: (context, index) {
+                  //     return ListTile(
+                  //       title: Text(studentBox.keyAt(index)),
+                  //       subtitle: Text(studentBox.getAt(index)),
+                  // );
+                  //     });
+                  //   },
+                  // ),
                 ],
               ),
               Row(
@@ -65,25 +63,25 @@ class _HomeHiveState extends State<HomeHive> {
                       ElevatedButton(
                         onPressed: () {
                           //
-                          studentBox?.put(
-                              rollNoController.text, nameController.text);
+                          // studentBox?.put(
+                          //     rollNoController.text, nameController.text);
 
-                          rollNoController.clear();
-                          nameController.clear();
-                          Navigator.pop(context);
+                          // rollNoController.clear();
+                          // nameController.clear();
+                          // Navigator.pop(context);
 
-                          ////
-                          // Get.dialog();
-                          CustomDialog.showCustomDialog(
-                            context: context,
-                            primaryController: rollNoController,
-                            secondaryController: nameController,
-                            lblTextName: 'Studen Name',
-                            lblTextRol: 'Roll Number',
-                            subButtn: 'Add',
-                            cancel: 'Cansil',
-                            inputType: TextInputType.numberWithOptions(),
-                          );
+                          // ////
+                          // // Get.dialog();
+                          // CustomDialog.showCustomDialog(
+                          //   context: context,
+                          //   primaryController: rollNoController,
+                          //   secondaryController: nameController,
+                          //   lblTextName: 'Studen Name',
+                          //   lblTextRol: 'Roll Number',
+                          //   subButtn: 'Add',
+                          //   cancel: 'Cansil',
+                          //   inputType: TextInputType.numberWithOptions(),
+                          // );
                         },
                         child: Text('Add Student'),
                       ),
@@ -92,12 +90,12 @@ class _HomeHiveState extends State<HomeHive> {
                       //2
                       ElevatedButton(
                         onPressed: () {
-                          studentBox?.put(
-                              rollNoController.text, nameController.text);
+                          // studentBox?.put(
+                          //     rollNoController.text, nameController.text);
 
-                          rollNoController.clear();
-                          nameController.clear();
-                          Navigator.pop(context);
+                          // rollNoController.clear();
+                          // nameController.clear();
+                          // Navigator.pop(context);
 
                           //
                           CustomDialog.showCustomDialog(
@@ -120,9 +118,9 @@ class _HomeHiveState extends State<HomeHive> {
                       //3
                       ElevatedButton(
                         onPressed: () {
-                          studentBox?.delete(rollNoController.text);
-                          rollNoController.clear();
-                          Navigator.pop(context);
+                          // studentBox?.delete(rollNoController.text);
+                          // rollNoController.clear();
+                          // Navigator.pop(context);
                           //
                           CustomDialog.showCustomDialog(
                             context: context,
@@ -139,9 +137,9 @@ class _HomeHiveState extends State<HomeHive> {
                       ElevatedButton(
                         onPressed: () {
                           //
-                          print(
-                            studentBox?.get(rollNoController.text),
-                          );
+                          // print(
+                          //   studentBox?.get(rollNoController.text),
+                          // );
                           rollNoController.clear();
                           Navigator.pop(context);
                           //
