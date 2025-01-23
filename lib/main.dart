@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:local_database/HiveDatabase/HomeHive.dart';
 import 'package:local_database/SharedPreference/SharedHome.dart';
 
 void main() async {

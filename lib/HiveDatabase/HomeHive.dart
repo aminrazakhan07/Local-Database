@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'package:local_database/HiveDatabase/Widgets/ShowDialog.dart';
 
 class HomeHive extends StatefulWidget {

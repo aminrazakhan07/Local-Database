@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/_http/_stub/_file_decoder_stub.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Sharedhome extends StatefulWidget {
